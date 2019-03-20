@@ -51,6 +51,7 @@ class SignUpForm extends Component {
     })
   }
 
+  // Check inputs and if at least one of them is empty return FALSE
   checkErrorsHandler = () => {
     const {inputs} = this.state;
     let {usernameError, emailError, agreeAccepted} = false
@@ -82,9 +83,11 @@ class SignUpForm extends Component {
       }
     })
 
+    // If one of them is Empty check doesn't pass 
     return !(usernameError || emailError || agreeAccepted)
   }
 
+  // Singing up without errors only
   signUpHandler = () => {
     if (this.checkErrorsHandler()) {
       this.resetForm()
@@ -124,6 +127,7 @@ export default SignUpForm;
 
 function UserName({username, error, inputTextHandler}) {
   let errorMsg = (<span style={{color: "red"}}>{"Name is requred"}</span>);
+  
   return (
     <div>
       <label htmlFor="username">Username</label>
